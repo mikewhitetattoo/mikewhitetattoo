@@ -965,13 +965,6 @@ html {
   cursor: pointer;
 }
 
-/* FORCE DATE / TIME ICONS TO SHOW (iOS / WebKit) */
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
-  opacity: 1;
-  display: block;
-  filter: invert(1);
-}
 
 /* DATE / TIME – OPEN PICKER ON WHOLE INPUT */
 input[type="date"],
@@ -979,3 +972,12 @@ input[type="time"] {
   cursor: pointer;
 }
 
+/* iOS – DATE/TIME WITHOUT ICONS (STABLE FIX) */
+@supports (-webkit-touch-callout: none) {
+
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    display: none;
+  }
+}
