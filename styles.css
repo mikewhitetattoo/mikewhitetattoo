@@ -953,19 +953,6 @@ input[type="time"] {
   cursor: pointer;
 }
 
-/* ================================
-   iOS SAFARI – FORCE SINGLE COLUMN
-   ================================ */
-@supports (-webkit-touch-callout: none) {
-
-  .form-card .row {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px;
-  }
-
-}
-
 /* iOS SAFARI – ALIGN FORM INPUTS VISUALLY */
 @supports (-webkit-touch-callout: none) {
 
@@ -986,3 +973,24 @@ input[type="time"] {
   }
 
 }
+
+/* ============================
+   iOS SAFARI – DATE/TIME FIX
+   (FINAL, STABLE)
+   ============================ */
+@supports (-webkit-touch-callout: none) {
+
+  input[type="date"],
+  input[type="time"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px 18px;
+    font-size: 14px;
+    line-height: 1.2;
+
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+}
+
