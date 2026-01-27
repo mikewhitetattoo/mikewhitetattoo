@@ -125,3 +125,22 @@ document.addEventListener('click', (e) => {
     navLinks.classList.remove('open');
   }
 });
+
+const form = document.querySelector('.form-card');
+const message = document.querySelector('.form-message');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  message.textContent =
+    "Thank you for your request! I’ll get back to you as soon as possible.";
+  message.classList.add('visible');
+
+  form.reset();
+
+  // (opcjonalnie) ukryj po 5 sekundach
+  setTimeout(() => {
+    message.classList.remove('visible');
+  }, 5000);
+});
+
