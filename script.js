@@ -193,3 +193,9 @@ function renderFileList() {
   });
 }
 
+// FORCE DATE / TIME PICKER TO OPEN ON INPUT CLICK
+document.querySelectorAll('input[type="date"], input[type="time"]').forEach(input => {
+  input.addEventListener('click', () => {
+    input.showPicker && input.showPicker();
+  });
+});
