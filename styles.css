@@ -965,3 +965,24 @@ input[type="time"] {
   }
 
 }
+
+/* iOS SAFARI – ALIGN FORM INPUTS VISUALLY */
+@supports (-webkit-touch-callout: none) {
+
+  .form-card input,
+  .form-card textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+}
+
+@supports (-webkit-touch-callout: none) {
+
+  .form-card input,
+  .form-card textarea {
+    border-radius: 14px;
+  }
+
+}
