@@ -973,3 +973,9 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
 
+/* DATE / TIME – OPEN PICKER ON WHOLE INPUT */
+input[type="date"],
+input[type="time"] {
+  cursor: pointer;
+}
+
