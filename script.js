@@ -193,9 +193,13 @@ function renderFileList() {
   });
 }
 
-// FORCE DATE / TIME PICKER TO OPEN ON INPUT CLICK
+// ===== DATE / TIME – CLICK WHOLE FIELD =====
 document.querySelectorAll('input[type="date"], input[type="time"]').forEach(input => {
   input.addEventListener('click', () => {
-    input.showPicker && input.showPicker();
+    input.showPicker?.();
+  });
+
+  input.addEventListener('focus', () => {
+    input.showPicker?.();
   });
 });
