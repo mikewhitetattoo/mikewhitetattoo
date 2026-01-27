@@ -953,34 +953,6 @@ input[type="time"] {
   cursor: pointer;
 }
 
-/* iOS – DATE/TIME WITHOUT ICONS (STABLE FIX) */
-@supports (-webkit-touch-callout: none) {
-
-  input[type="date"]::-webkit-calendar-picker-indicator,
-  input[type="time"]::-webkit-calendar-picker-indicator {
-    opacity: 0;
-    display: none;
-  }
-}
-
-/* iOS – STABLE DATE / TIME INPUT HEIGHT */
-@supports (-webkit-touch-callout: none) {
-
-  input[type="date"],
-  input[type="time"] {
-    min-height: 48px;
-    padding-right: 16px;
-  }
-
-}
-
-
-/* iOS SAFARI – GRID FIX FOR DATE/TIME */
-.input-wrap {
-  display: block;
-  width: 100%;
-}
-
 /* ================================
    iOS SAFARI – FORCE SINGLE COLUMN
    ================================ */
