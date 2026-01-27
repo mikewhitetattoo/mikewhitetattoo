@@ -34,16 +34,27 @@ gridImages.forEach((img, index) => {
     currentIndex = index;
     modalImg.src = img.src;
     modal.style.display = 'flex';
+requestAnimationFrame(() => {
+      modal.classList.add('active');
+    });
   });
 });
 
 // CLOSE
 document.querySelector('.close').addEventListener('click', () => {
+  modal.classList.remove('active');
+setTimeout(() => {
   modal.style.display = 'none';
+}, 300);
 });
 
 modal.addEventListener('click', e => {
-  if (e.target === modal) modal.style.display = 'none';
+  if (e.target === modal) {
+    modal.classList.remove('active');
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300);
+  }
 });
 
 // SHOW IMAGE

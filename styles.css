@@ -397,7 +397,7 @@ iframe {
 #modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.95);
+  background: rgba(0,0,0,.88);
   display: none;
   justify-content: center;
   align-items: center;
@@ -870,5 +870,49 @@ html {
     font-size: 18px;
     text-align: right;
   }
+}
+
+/* DESKTOP – HERO REALLY HIGHER (FINAL FIX) */
+@media (min-width: 1024px) {
+
+  .hero {
+    padding-top: 90px;     /* ⬅️ było 140px */
+  }
+
+  .hero-inner {
+    padding: 60px 32px 100px;
+    /* top | sides | bottom */
+  }
+}
+
+/* DESKTOP – HERO TEXT MICRO ALIGN (FINAL POLISH) */
+@media (min-width: 1024px) {
+
+  .hero-text {
+    transform: translateY(-24px); /* ⬅️ dokładnie ten brakujący „klik” */
+  }
+
+}
+
+/* MODAL – SMOOTH OPEN / CLOSE (FIXED) */
+#modal {
+  display: none;              /* ⬅️ kontrola widoczności */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+#modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-image-wrapper {
+  transform: scale(0.97);
+  transition: transform 0.3s ease;
+}
+
+#modal.active .modal-image-wrapper {
+  transform: scale(1);
 }
 
