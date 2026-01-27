@@ -711,3 +711,88 @@ footer {
   }
 
 }
+
+/* MOBILE – SOCIAL BUTTONS BALANCED SIZE */
+@media (max-width: 768px) {
+
+  .social {
+    height: auto;
+    padding: 14px 22px;     /* ⬅️ było 18 → teraz ~20% mniej */
+    min-height: 56px;       /* ⬅️ było 68 → teraz bliżej SEND REQUEST */
+    font-size: 15px;        /* ⬅️ delikatnie mniejsze */
+    border-radius: 16px;    /* ⬅️ subtelniej */
+  }
+
+  .social i {
+    font-size: 22px;        /* ⬅️ proporcjonalnie */
+    line-height: 1;
+  }
+}
+
+
+/* MOBILE – SOCIAL BUTTONS FONT TUNE */
+@media (max-width: 768px) {
+
+  .social {
+    font-size: 16.5px;   /* ⬅️ było 15 → idealny sweet spot */
+  }
+
+  .social i {
+    font-size: 23px;     /* ⬅️ proporcja ikona ↔ tekst */
+  }
+}
+
+/* MOBILE – HERO IMAGE CENTER & FRAME FIX */
+@media (max-width: 768px) {
+
+  .hero-image {
+    width: 100%;              /* ⬅️ zamiast 380px */
+    max-width: 320px;         /* ⬅️ bezpieczna szerokość */
+    margin: 0 auto;           /* ⬅️ centrowanie */
+    justify-self: center;
+  }
+
+  .hero-image::before {
+    top: 10px;
+    left: 10px;
+    right: -10px;
+    bottom: -10px;            /* ⬅️ ramka w całości w kadrze */
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;      /* ⬅️ zero przycinania */
+  }
+}
+
+/* MOBILE – REDUCE GAP BETWEEN HERO & WORK */
+@media (max-width: 768px) {
+
+  .hero-inner {
+    padding-bottom: 40px;   /* ⬅️ było wizualnie za dużo */
+  }
+
+  .work {
+    padding-top: 40px;      /* ⬅️ zbliża MY WORK do zdjęcia */
+  }
+}
+
+/* DESKTOP – HERO BUTTONS PERFECT ALIGNMENT */
+@media (min-width: 769px) {
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    align-items: flex-start;
+    margin-left: 2px; /* ⬅️ mikro-korekta optyczna */
+  }
+
+  .hero-buttons .btn {
+    margin-right: 0;
+    width: 260px;          /* ⬅️ STAŁA SZEROKOŚĆ = równe krawędzie */
+    text-align: center;
+  }
+}
