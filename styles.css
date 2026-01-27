@@ -973,3 +973,10 @@ input[type="time"] {
   }
 
 }
+
+
+/* iOS SAFARI – GRID FIX FOR DATE/TIME */
+.input-wrap {
+  display: block;
+  width: 100%;
+}
