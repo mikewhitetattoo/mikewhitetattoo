@@ -981,3 +981,13 @@ input[type="time"] {
     display: none;
   }
 }
+
+/* iOS FIX – FORM GRID OVERLAP (DATE / TIME) */
+@supports (-webkit-touch-callout: none) {
+
+  .form-card .row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+}
