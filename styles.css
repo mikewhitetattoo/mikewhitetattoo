@@ -813,3 +813,30 @@ html {
     padding-top: 40px;      /* ⬅️ ~50% mniej przerwy */
   }
 }
+
+/* MOBILE – HERO START HIGHER */
+@media (max-width: 768px) {
+
+  .hero {
+    padding-top: 90px;     /* ⬅️ było wizualnie za nisko */
+  }
+
+  .hero-inner {
+    padding-top: 40px;     /* ⬅️ zmniejszamy „czarną dziurę” */
+  }
+}
+
+/* iOS FIX – DATE / TIME INPUT OVERFLOW */
+@supports (-webkit-touch-callout: none) {
+
+  input[type="date"],
+  input[type="time"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;        /* ⬅️ stabilny padding dla iOS */
+    font-size: 14px;
+    line-height: 1.2;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
