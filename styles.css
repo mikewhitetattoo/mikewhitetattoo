@@ -778,27 +778,38 @@ footer {
   }
 }
 
-/* DESKTOP – HERO BUTTONS PERFECT ALIGNMENT */
-@media (min-width: 769px) {
-
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-
-    align-items: flex-start;
-    margin-left: 2px; /* ⬅️ mikro-korekta optyczna */
-  }
-
-  .hero-buttons .btn {
-    margin-right: 0;
-    width: 260px;          /* ⬅️ STAŁA SZEROKOŚĆ = równe krawędzie */
-    text-align: center;
-  }
-}
-
 /* FIX: Chrome Android font scaling */
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+/* MOBILE – HERO BUTTONS STACK & ALIGN */
+@media (max-width: 768px) {
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;   /* ⬅️ jeden pod drugim */
+    gap: 14px;
+    align-items: center;      /* ⬅️ równo */
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 260px;         /* ⬅️ estetyczna szerokość */
+    text-align: center;
+    margin-right: 0;
+  }
+}
+
+/* MOBILE – REDUCE GAP BEFORE STUDIO */
+@media (max-width: 768px) {
+
+  #contact {
+    padding-bottom: 40px;   /* ⬅️ było wizualnie za dużo */
+  }
+
+  .studio {
+    padding-top: 40px;      /* ⬅️ ~50% mniej przerwy */
+  }
 }
