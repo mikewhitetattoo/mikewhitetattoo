@@ -115,11 +115,11 @@
     <div class="row">
       <div class="field">
         <label>Name</label>
-        <input type="text" placeholder="Your name">
+        <input type="text" placeholder="Your name" maxlength="60">
       </div>
       <div class="field">
         <label>Email</label>
-        <input type="email" placeholder="your@email.com">
+        <input type="email" placeholder="your@email.com" maxlength="60">
       </div>
     </div>
 
@@ -136,12 +136,16 @@
 
     <div class="field">
       <label>Placement & Size</label>
-      <input type="text" placeholder="e.g. Inner forearm, approx 15cm">
+      <input type="text" placeholder="e.g. Inner forearm, approx 15cm" maxlength="300">
     </div>
 
     <div class="field">
       <label>Idea Description</label>
-      <textarea placeholder="Describe your tattoo idea..."></textarea>
+      <textarea
+  name="idea"
+  placeholder="Describe your tattoo idea..."
+  maxlength="800"
+></textarea>
     </div>
 
 <div class="field">
