@@ -980,3 +980,16 @@ input[type="time"] {
   display: block;
   width: 100%;
 }
+
+/* ================================
+   iOS SAFARI – FORCE SINGLE COLUMN
+   ================================ */
+@supports (-webkit-touch-callout: none) {
+
+  .form-card .row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px;
+  }
+
+}
