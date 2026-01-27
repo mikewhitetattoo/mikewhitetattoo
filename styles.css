@@ -248,6 +248,7 @@ textarea::placeholder {
   color: #888;
 }
 
+}
 
 textarea {
   min-height: 120px;
@@ -262,7 +263,7 @@ textarea {
 transition: transform .25s ease, box-shadow .25s ease;
 
 }
-.form-message {
+form-message {
   margin-top: 16px;
   font-size: 14px;
   color: #9adf9a;              /* delikatna zieleń = success */
@@ -280,6 +281,8 @@ transition: transform .25s ease, box-shadow .25s ease;
   transform: scale(1.04);
   box-shadow: 0 10px 25px rgba(0,0,0,.35);
 }
+}
+
 
 /* WHITE ICONS (DATE / TIME) */
 .white-icon::-webkit-calendar-picker-indicator {
@@ -839,6 +842,20 @@ html {
   }
 }
 
+/* iOS FIX – DATE / TIME INPUT OVERFLOW */
+@supports (-webkit-touch-callout: none) {
+
+  input[type="date"],
+  input[type="time"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;        /* ⬅️ stabilny padding dla iOS */
+    font-size: 14px;
+    line-height: 1.2;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
 
 /* MOBILE – SMOOTH HAMBURGER MENU */
 @media (max-width: 768px) {
@@ -944,45 +961,4 @@ html {
   color: #ff6b6b;
   font-size: 14px;
   cursor: pointer;
-}
-
-
-/* DATE / TIME – OPEN PICKER ON WHOLE INPUT */
-input[type="date"],
-input[type="time"] {
-  cursor: pointer;
-}
-
-/* ================================
-   iOS SAFARI – FORCE SINGLE COLUMN
-   ================================ */
-@supports (-webkit-touch-callout: none) {
-
-  .form-card .row {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 16px;
-  }
-
-}
-
-/* iOS SAFARI – ALIGN FORM INPUTS VISUALLY */
-@supports (-webkit-touch-callout: none) {
-
-  .form-card input,
-  .form-card textarea {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-}
-
-@supports (-webkit-touch-callout: none) {
-
-  .form-card input,
-  .form-card textarea {
-    border-radius: 14px;
-  }
-
 }
