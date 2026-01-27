@@ -144,3 +144,52 @@ form.addEventListener('submit', (e) => {
   }, 5000);
 });
 
+// ===== FILE UPLOAD (MAX 3 IMAGES, ADD / REMOVE) =====
+
+const fileInput = document.getElementById('referenceImages');
+const fileList = document.querySelector('.file-list');
+
+let selectedFiles = [];
+
+fileInput.addEventListener('change', () => {
+  const newFiles = Array.from(fileInput.files);
+
+  for (let file of newFiles) {
+    if (selectedFiles.length >= 3) {
+      showFormMessage('You can upload up to 3 images only.');
+      break;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      showFormMessage('Each image must be smaller than 5MB.');
+      continue;
+    }
+
+    selectedFiles.push(file);
+  }
+
+  renderFileList();
+  fileInput.value = ''; // ⬅️ kluczowe
+});
+
+function renderFileList() {
+  fileList.innerHTML = '';
+
+  selectedFiles.forEach((file, index) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      ${file.name}
+      <button type="button" data-index="${index}">✕</button>
+    `;
+    fileList.appendChild(li);
+  });
+
+  fileList.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const index = btn.dataset.index;
+      selectedFiles.splice(index, 1);
+      renderFileList();
+    });
+  });
+}
+
