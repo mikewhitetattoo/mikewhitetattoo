@@ -560,7 +560,6 @@ footer {
     left: 0;
     width: 100%;
     background: #0f0f0f;
-    display: none;
     flex-direction: column;
     padding: 20px 32px;
   }
@@ -568,10 +567,6 @@ footer {
   .nav-links a {
     margin: 16px 0;
     font-size: 18px;
-  }
-
-  .nav-links.open {
-    display: flex;
   }
 
   .hamburger {
@@ -840,3 +835,40 @@ html {
     -webkit-appearance: none;
   }
 }
+
+/* MOBILE – SMOOTH HAMBURGER MENU */
+@media (max-width: 768px) {
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    display: flex;                 /* ⬅️ ZAWSZE flex */
+    flex-direction: column;
+
+    background: #0f0f0f;
+    padding: 0 32px;
+
+    max-height: 0;                 /* ⬅️ start zamknięty */
+    overflow: hidden;
+    opacity: 0;
+
+    transition:
+      max-height 0.45s cubic-bezier(.4,0,.2,1),
+      opacity 0.25s ease;
+  }
+
+  .nav-links.open {
+    max-height: 400px;             /* ⬅️ wystarczająco */
+    opacity: 1;
+  }
+
+  .nav-links a {
+    margin: 18px 0;
+    font-size: 18px;
+    text-align: right;
+  }
+}
+
