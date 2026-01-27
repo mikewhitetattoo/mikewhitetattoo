@@ -473,7 +473,7 @@ iframe {
 .social {
   flex: 1;
   max-width: 280px;
-  height: 56px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
