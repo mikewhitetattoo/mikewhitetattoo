@@ -309,7 +309,7 @@ transition: transform .25s ease, box-shadow .25s ease;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
-  background: linear-gradient(180deg,#1b1b1b,#111);
+  background: linear-gradient(180deg, #1e1e1e, #181818);
   padding: 32px;
   border-radius: 16px;
 }
@@ -998,4 +998,10 @@ input[type="time"] {
 
 .hero-title span {
   color: #777;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
 }

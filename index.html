@@ -58,11 +58,12 @@
 
       <!-- DESIGN HEADLINE -->
       <h2 class="hero-title">
-        ART THAT<br>BLEEDS <span>INK.</span>
+        STORIES WRITTEN<br>IN <span>INK.</span>
       </h2>
       <p class="desc">
-        Based in the heart of St. Paul's Bay, I specialize in blackwork,
-        realism, and custom illustrative pieces.
+        Based in St. Paul’s Bay, I’m a tattoo artist from Poland with over six years of experience. My work blends bold, clean linework with striking blackwork and Japanese-inspired motifs. I’m known for precision and attention to detail, creating tattoos that balance simplicity with impact, perfect for those who appreciate anime, manga, and minimalist yet expressive designs.<br> <br>
+
+I draw inspiration from traditional tattooing, dark and blackwork aesthetics, as well as geek culture. While I’m recognized for bold, graphic styles, I also enjoy crafting delicate fineline pieces with the same level of care and precision.
       </p>
 
       <div class="hero-buttons">
@@ -125,56 +126,79 @@
 
   <form class="form-card">
 
-    <div class="row">
-      <div class="field">
-        <label>Name</label>
-        <input type="text" placeholder="Your name" maxlength="60">
-      </div>
-      <div class="field">
-        <label>Email</label>
-        <input type="email" placeholder="your@email.com" maxlength="60">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="field">
-        <label>Preferred Date</label>
-        <input type="date" class="white-icon">
-      </div>
-      <div class="field">
-        <label>Preferred Time</label>
-        <input type="time" class="white-icon">
-      </div>
-    </div>
-
-    <div class="field">
-      <label>Placement & Size</label>
-      <input type="text" placeholder="e.g. Inner forearm, approx 15cm" maxlength="300">
-    </div>
-
-    <div class="field">
-      <label>Idea Description</label>
-      <textarea
-  name="idea"
-  placeholder="Describe your tattoo idea..."
-  maxlength="800"
-></textarea>
-    </div>
-
-<div class="field">
-  <label>Reference Images (up to 3, max 5MB each)</label>
+  <!-- HONEYPOT (anty-spam, niewidoczny) -->
   <input
-    type="file"
-    id="referenceImages"
-    accept="image/*"
-    multiple
+    type="text"
+    name="company"
+    tabindex="-1"
+    autocomplete="off"
+    class="honeypot"
   >
-  <ul class="file-list"></ul>
-</div>
 
-    <button class="btn submit">SEND REQUEST</button>
-<p class="form-message"></p>
-  </form>
+    <!-- ROW 1 -->
+  <div class="row">
+    <div class="field">
+      <label>Name</label>
+      <input type="text" name="name" placeholder="Your name" maxlength="60">
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="your@email.com">
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="row">
+    <div class="field">
+      <label>Preferred Date</label>
+      <input type="date" name="preferred_date" class="white-icon">
+    </div>
+
+    <div class="field">
+      <label>Preferred Time</label>
+      <input type="time" name="preferred_time" class="white-icon">
+    </div>
+  </div>
+
+  <!-- SINGLE FIELD -->
+  <div class="field">
+    <label>Placement & Size</label>
+    <input
+      type="text"
+      name="placement"
+      placeholder="e.g. Inner forearm, approx 15cm"
+      maxlength="300"
+    >
+  </div>
+
+  <!-- SINGLE FIELD -->
+  <div class="field">
+    <label>Idea Description</label>
+    <textarea
+      name="idea"
+      placeholder="Describe your tattoo idea..."
+      maxlength="800"
+    ></textarea>
+  </div>
+
+  <!-- SINGLE FIELD -->
+  <div class="field">
+    <label>Reference Images (up to 3, max 5MB each)</label>
+    <input
+      type="file"
+      id="referenceImages"
+      name="attachments"
+      accept="image/*"
+      multiple
+    >
+    <ul class="file-list"></ul>
+  </div>
+
+  <button class="btn submit">SEND REQUEST</button>
+  <p class="form-message"></p>
+
+</form>
 
   <div class="connect">
     <span></span> OR CONNECT DIRECTLY <span></span>
@@ -185,7 +209,7 @@
       <i class="fa-brands fa-instagram"></i>
       DM on Instagram
     </a>
-    <a class="social wa" href="https://wa.me/35699123456" target="_blank">
+    <a class="social wa" href="https://wa.me/35677093837" target="_blank">
       <i class="fa-brands fa-whatsapp"></i>
       Message on WhatsApp
     </a>
@@ -197,29 +221,42 @@
 
     <div class="studio-info">
       <h3>THE STUDIO</h3>
-      <p>Located in the vibrant area of St. Paul's Bay. Appointment only.</p>
+<p>
+  Based at <strong>
+    <a
+      href="https://share.google/SdutlcSmmptduPwLu"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      We The Sinners
+    </a>
+  </strong>
+  tattoo studio in St. Paul’s Bay. <br>Walk-ins are welcome.
+</p>
 
-      <p><strong>Mike White Tattoos</strong><br>
-        Triq it-Turisti<br>
+
+      <p>Coral Line<br>
+        3 Triq Il-Villegjatura<br>
         San Pawl il-Baħar, Malta
       </p>
 
-      <p>
-        Mon–Fri: 10:00–18:00<br>
-        Sat: 11:00–16:00<br>
-        Sun: Closed
-      </p>
+      <h4>WE’RE OPEN 7 DAYS A WEEK</h4>
+<p>
+  Monday - Friday: 11:00 AM - 7:00 PM<br>
+  Saturday: 11:00 AM - 5:00 PM<br>
+  Sunday: 11:00 AM - 7:00 PM
+</p>
 
-      <p>+356 99 123 456</p>
+      <p>+356 79 582 238</p>
 
       <div class="studio-icons">
-        <a class="ig" href="https://www.instagram.com/mikewhite_ink/" target="_blank">
+        <a class="ig" href="https://www.instagram.com/wethesinnerstattoo/" target="_blank">
           <i class="fa-brands fa-instagram"></i>
         </a>
-        <a class="wa" href="https://wa.me/35699123456" target="_blank">
+        <a class="wa" href="https://wa.me/35679582238" target="_blank">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a class="tel" href="tel:+35699123456">
+        <a class="tel" href="tel:+35679582238">
           <i class="fa-solid fa-phone"></i>
         </a>
       </div>
