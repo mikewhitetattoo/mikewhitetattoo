@@ -1034,3 +1034,27 @@ input[type="time"] {
   left: -9999px;
   opacity: 0;
 }
+
+/* OR CONNECT DIRECTLY – RESTORE DIVIDER */
+.connect {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 48px auto 32px;   /* ⬅️ KLUCZ: wraca oddech */
+  max-width: 760px;         /* ⬅️ align z formularzem */
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.connect span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #333,
+    transparent
+  );
+  opacity: 0.8;
+}
