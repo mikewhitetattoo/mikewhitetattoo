@@ -409,18 +409,6 @@ iframe {
   opacity: 1;
 }
 
-.faq-content {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  padding: 0 32px;
-  color: #bcbcbc;
-  font-size: 14px;
-  line-height: 1.6;
-  text-align: left;
-}
-
-
 
 /* MODAL */
 #modal {
@@ -475,11 +463,6 @@ iframe {
     padding: 10px;
   }
 }
-
-@media (max-width: 768px) {
-  .studio-card {
-    grid-template-columns: 1fr;
-  }
 
   .map-clickable {
     margin-top: 24px;
@@ -912,6 +895,41 @@ html {
     text-align: right;
   }
 }
+
+@media (max-width: 768px) {
+  .studio {
+    padding-bottom: 20px;
+  }
+
+  .faq {
+    padding-top: 20px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .studio-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .studio-info {
+    order: 1;
+  }
+
+  .studio-icons {
+    order: 2;
+    margin-top: 16px;
+  }
+
+  .map-clickable {
+    order: 3;
+    margin-top: 24px; /* ⬅️ mapa WYRAŹNIE POD ikonami */
+  }
+
+}
+
 
 /* DESKTOP – HERO REALLY HIGHER (FINAL FIX) */
 @media (min-width: 1024px) {
