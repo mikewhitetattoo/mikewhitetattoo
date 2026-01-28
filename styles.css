@@ -476,6 +476,17 @@ iframe {
   }
 }
 
+@media (max-width: 768px) {
+  .studio-card {
+    grid-template-columns: 1fr;
+  }
+
+  .map-clickable {
+    margin-top: 24px;
+  }
+}
+
+
 /* GET INKED – SOCIAL BUTTONS */
 .connect {
   display: flex;
