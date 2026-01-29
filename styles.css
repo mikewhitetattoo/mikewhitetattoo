@@ -286,7 +286,7 @@ transition: transform .25s ease, box-shadow .25s ease;
   filter: blur(0);
 }
 .submit:hover {
-  transform: scale(1.04);
+  transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0,0,0,.35);
 }
 }
@@ -1064,4 +1064,11 @@ input[type="time"] {
     transparent
   );
   opacity: 0.8;
+}
+
+/* FIX: Instagram button side stripes on mobile */
+@media (max-width: 768px) {
+  .social.ig {
+    background-clip: padding-box;
+  }
 }
