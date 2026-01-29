@@ -130,7 +130,6 @@ const form = document.querySelector('.form-card');
 const message = document.querySelector('.form-message');
 
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
 
   const submitBtn = form.querySelector('.submit');
   submitBtn.classList.add('loading');
