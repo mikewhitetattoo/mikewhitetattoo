@@ -129,7 +129,8 @@ document.addEventListener('click', (e) => {
 const form = document.querySelector('.form-card');
 const message = document.querySelector('.form-message');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
   const submitBtn = form.querySelector('.submit');
   submitBtn.classList.add('loading');
@@ -137,15 +138,17 @@ form.addEventListener('submit', (e) => {
 
   const formData = new FormData(form);
 
-  fetch(form.action, {
-    method: 'POST',
-    body: formData,
-  })
-  .then(response => {
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+    });
+
     if (!response.ok) {
-      throw new Error('Form submission failed');
+      throw new Error('Send failed');
     }
 
+    // ✅ SUKCES
     message.textContent =
       "Thank you for your request! I’ll get back to you as soon as possible.";
     message.classList.add('visible');
@@ -159,15 +162,16 @@ form.addEventListener('submit', (e) => {
 
     message.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+    // smooth hide
     setTimeout(() => {
       message.classList.remove('visible');
     }, 4000);
-  })
-  .catch(() => {
+
+  } catch (error) {
     alert('Something went wrong. Please try again.');
     submitBtn.classList.remove('loading');
     submitBtn.textContent = 'SEND REQUEST';
-  });
+  }
 });
 
 // ===== FILE UPLOAD (MAX 3 IMAGES, ADD / REMOVE) =====
