@@ -126,53 +126,15 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// ===== FORM SUBMIT FLAG (BEFORE PAGE RELOAD) =====
 const form = document.querySelector('.form-card');
-const message = document.querySelector('.form-message');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+if (form) {
+  form.addEventListener('submit', () => {
+    localStorage.setItem('formSubmitted', 'true');
+  });
+}
 
-  const submitBtn = form.querySelector('.submit');
-  submitBtn.classList.add('loading');
-  submitBtn.textContent = 'SENDING…';
-
-  const formData = new FormData(form);
-
-  try {
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: formData,
-    });
-
-    if (!response.ok) {
-      throw new Error('Send failed');
-    }
-
-    // ✅ SUKCES
-    message.textContent =
-      "Thank you for your request! I’ll get back to you as soon as possible.";
-    message.classList.add('visible');
-
-    form.reset();
-    selectedFiles = [];
-    fileList.innerHTML = '';
-
-    submitBtn.classList.remove('loading');
-    submitBtn.textContent = 'SEND REQUEST';
-
-    message.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-    // smooth hide
-    setTimeout(() => {
-      message.classList.remove('visible');
-    }, 4000);
-
-  } catch (error) {
-    alert('Something went wrong. Please try again.');
-    submitBtn.classList.remove('loading');
-    submitBtn.textContent = 'SEND REQUEST';
-  }
-});
 
 // ===== FILE UPLOAD (MAX 3 IMAGES, ADD / REMOVE) =====
 
@@ -190,8 +152,8 @@ fileInput.addEventListener('change', () => {
       break;
     }
 
-    if (file.size > 5 * 1024 * 1024) {
-      showFormMessage('Each image must be smaller than 5MB.');
+    if (file.size > 3 * 1024 * 1024) {
+      showFormMessage('Each image must be smaller than 3MB.');
       continue;
     }
 
@@ -199,7 +161,6 @@ fileInput.addEventListener('change', () => {
   }
 
   renderFileList();
-  fileInput.value = ''; // ⬅️ kluczowe
 });
 
 function renderFileList() {
@@ -234,7 +195,26 @@ document.querySelectorAll('input[type="date"], input[type="time"]').forEach(inpu
   });
 });
 
-window.addEventListener('load', () => {
-  document.querySelector('.hero').classList.add('loaded');
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.hero')?.classList.add('loaded');
+
+  // ⏳ dajemy chwilę po redirect Static Forms
+  setTimeout(() => {
+    const message = document.querySelector('.form-message');
+
+    if (localStorage.getItem('formSubmitted') === 'true' && message) {
+      message.textContent =
+        "Thank you for your request! I’ll get back to you as soon as possible.";
+      message.classList.add('visible');
+
+      message.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      setTimeout(() => {
+        message.classList.remove('visible');
+      }, 4000);
+
+      localStorage.removeItem('formSubmitted');
+    }
+  }, 300); // ⬅️ KLUCZOWE
 });
 

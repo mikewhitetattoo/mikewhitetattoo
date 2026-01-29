@@ -125,11 +125,18 @@ My work focuses on fineline, blackwork and illustrative tattoos inspired by Japa
 
   <form
   class="form-card"
-  action="https://mikewhitetattoo.getform.com/pmm1p"
+  action="https://api.staticforms.xyz/submit"
   method="POST"
   enctype="multipart/form-data"
-
 >
+
+    <input
+      type="hidden"
+      name="accessKey"
+      value="sf_1n3fj863hkned597jg24dgbi"
+    >
+
+<input type="hidden" name="redirectTo" value="https://mikewhitetattoo.github.io/mikewhitetattoo/#contact">
 
   <!-- HONEYPOT (anty-spam, niewidoczny) -->
   <input
@@ -144,12 +151,12 @@ My work focuses on fineline, blackwork and illustrative tattoos inspired by Japa
   <div class="row">
     <div class="field">
       <label>Name</label>
-      <input type="text" name="name" placeholder="Your name" maxlength="60">
+      <input type="text" name="name" placeholder="Your name" maxlength="60" required>
     </div>
 
     <div class="field">
       <label>Email</label>
-      <input type="email" name="email" placeholder="your@email.com">
+      <input type="email" name="email" placeholder="your@email.com" maxlength="60" required>
     </div>
   </div>
 
@@ -179,21 +186,21 @@ My work focuses on fineline, blackwork and illustrative tattoos inspired by Japa
 
   <!-- SINGLE FIELD -->
   <div class="field">
-    <label>Idea Description</label>
-    <textarea
-      name="idea"
-      placeholder="Describe your tattoo idea..."
-      maxlength="800"
-    ></textarea>
-  </div>
+  <label>Idea Description</label>
+  <textarea
+    name="message"
+    placeholder="Describe your tattoo idea..."
+    maxlength="800" required
+  ></textarea>
+</div>
 
   <!-- SINGLE FIELD -->
   <div class="field">
-    <label>Reference Images (up to 3, max 5MB each)</label>
+    <label>Reference Images (up to 3, max 3MB each)</label>
     <input
       type="file"
       id="referenceImages"
-      name="attachments"
+       name="file"
       accept="image/*"
       multiple
     >
