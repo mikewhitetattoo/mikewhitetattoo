@@ -132,16 +132,43 @@ const message = document.querySelector('.form-message');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  message.textContent =
-    "Thank you for your request! I’ll get back to you as soon as possible.";
-  message.classList.add('visible');
+  const submitBtn = form.querySelector('.submit');
+  submitBtn.classList.add('loading');
+  submitBtn.textContent = 'SENDING…';
 
-  form.reset();
+  const formData = new FormData(form);
 
-  // (opcjonalnie) ukryj po 5 sekundach
-  setTimeout(() => {
-    message.classList.remove('visible');
-  }, 5000);
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Form submission failed');
+    }
+
+    message.textContent =
+      "Thank you for your request! I’ll get back to you as soon as possible.";
+    message.classList.add('visible');
+
+    form.reset();
+    selectedFiles = [];
+    fileList.innerHTML = '';
+
+    submitBtn.classList.remove('loading');
+    submitBtn.textContent = 'SEND REQUEST';
+
+    message.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    setTimeout(() => {
+      message.classList.remove('visible');
+    }, 4000);
+  })
+  .catch(() => {
+    alert('Something went wrong. Please try again.');
+    submitBtn.classList.remove('loading');
+    submitBtn.textContent = 'SEND REQUEST';
+  });
 });
 
 // ===== FILE UPLOAD (MAX 3 IMAGES, ADD / REMOVE) =====
@@ -203,3 +230,8 @@ document.querySelectorAll('input[type="date"], input[type="time"]').forEach(inpu
     input.showPicker?.();
   });
 });
+
+window.addEventListener('load', () => {
+  document.querySelector('.hero').classList.add('loaded');
+});
+
