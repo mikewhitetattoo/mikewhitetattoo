@@ -930,6 +930,13 @@ html {
 
 }
 
+@media (max-width: 768px) {
+  .faq-btn {
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+  }
+}
 
 /* DESKTOP – HERO REALLY HIGHER (FINAL FIX) */
 @media (min-width: 1024px) {
