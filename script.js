@@ -152,8 +152,8 @@ fileInput.addEventListener('change', () => {
       break;
     }
 
-    if (file.size > 3 * 1024 * 1024) {
-      showFormMessage('Each image must be smaller than 3MB.');
+    if (file.size > 5 * 1024 * 1024) {
+      showFormMessage('Each image must be smaller than 5MB.');
       continue;
     }
 
