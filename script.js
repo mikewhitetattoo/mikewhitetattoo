@@ -218,3 +218,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 300); // ⬅️ KLUCZOWE
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const cookieInfo = document.getElementById('cookie-info');
+  const cookieOk = document.getElementById('cookie-ok');
+
+  if (!cookieInfo || !cookieOk) return;
+
+  if (!localStorage.getItem('cookieInfoSeen')) {
+    requestAnimationFrame(() => {
+      cookieInfo.classList.add('visible');
+    });
+  }
+
+  cookieOk.addEventListener('click', () => {
+    cookieInfo.classList.remove('visible');
+
+    setTimeout(() => {
+      localStorage.setItem('cookieInfoSeen', 'true');
+      cookieInfo.remove();
+    }, 450);
+  });
+});
+
+

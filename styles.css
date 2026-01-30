@@ -1108,3 +1108,70 @@ input[type="time"] {
   max-height: 0;
   overflow: hidden;
 }
+
+.cookie-info {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  max-width: 360px;
+
+  background: linear-gradient(180deg, #1e1e1e, #181818);
+  color: #ccc;
+  padding: 16px 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.6);
+  font-size: 13px;
+  z-index: 99999;
+
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+
+  transition:
+    opacity .45s ease,
+    transform .45s ease;
+}
+
+.cookie-info a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.cookie-info button {
+  margin-top: 14px;
+
+  background: #fff;
+  color: #000;
+
+  border: none;
+  border-radius: 6px;     /* ⬅️ delikatne zaokrąglenie */
+  padding: 14px 36px;     /* ⬅️ trochę mniejszy */
+
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+
+
+.cookie-info button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.cookie-info {
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+  gap: 6px;
+}
+
+.cookie-info.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
