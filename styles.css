@@ -2,11 +2,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --nav-height: 72px;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  padding-top: var(--nav-height);
   margin: 0;
   background: #0f0f0f;
   color: #eaeaea;
@@ -22,6 +27,7 @@ a {
 .nav {
   position: fixed;
   top: 0;
+ height: var(--nav-height);
   width: 100%;
   background: rgba(15,15,15,.9);
   border-bottom: none;
