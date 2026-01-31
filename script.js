@@ -143,42 +143,6 @@ if (form) {
 }
 
 
-// ===== FILE UPLOAD (MAX 3 IMAGES, ADD / REMOVE) =====
-
-const fileInputs = [
-  document.getElementById('referenceImage1'),
-  document.getElementById('referenceImage2'),
-  document.getElementById('referenceImage3')
-];
-
-const fileList = document.querySelector('.file-list');
-
-fileInputs.forEach(input => {
-  input.addEventListener('change', () => {
-    if (!input.files[0]) return;
-
-    if (input.files[0].size > 5 * 1024 * 1024) {
-      showFormMessage('Each image must be smaller than 5MB.');
-      input.value = '';
-      return;
-    }
-
-    renderFileList();
-  });
-});
-
-function renderFileList() {
-  fileList.innerHTML = '';
-
-  fileInputs.forEach((input, index) => {
-    if (input.files[0]) {
-      const li = document.createElement('li');
-      li.textContent = `Image ${index + 1}: ${input.files[0].name}`;
-      fileList.appendChild(li);
-    }
-  });
-}
-
 // ===== DATE / TIME – CLICK WHOLE FIELD =====
 document.querySelectorAll('input[type="date"], input[type="time"]').forEach(input => {
   input.addEventListener('click', () => {
@@ -247,25 +211,42 @@ function showFormMessage(text) {
   }, 4000);
 }
 
-function showFormMessage(text) {
-  const message = document.querySelector('.form-message');
-  if (!message) return;
 
-  message.textContent = text;
-  message.classList.add('visible');
+// UPLOAD SLOTS WITH IMAGE PREVIEW
 
-  setTimeout(() => {
-    message.classList.remove('visible');
-  }, 4000);
-}
+document.querySelectorAll('.upload-slot').forEach(slot => {
+  const input = slot.querySelector('input[type="file"]');
+  const removeBtn = slot.querySelector('.remove');
 
-document.querySelectorAll('.remove-file').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const input = document.getElementById(btn.dataset.input);
-    if (input) {
+  input.addEventListener('change', () => {
+    if (!input.files || !input.files[0]) return;
+
+    const file = input.files[0];
+
+    if (!file.type.startsWith('image/')) {
       input.value = '';
-      renderFileList();
+      return;
     }
+
+    // remove old preview if exists
+    const oldPreview = slot.querySelector('img.preview');
+    if (oldPreview) oldPreview.remove();
+
+    const img = document.createElement('img');
+    img.className = 'preview';
+    img.src = URL.createObjectURL(file);
+
+    slot.appendChild(img);
+    slot.classList.add('filled');
+  });
+
+  removeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    input.value = '';
+    slot.classList.remove('filled');
+
+    const preview = slot.querySelector('img.preview');
+    if (preview) preview.remove();
   });
 });
-
