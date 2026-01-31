@@ -88,7 +88,14 @@ document.querySelector('.modal-arrow.left').addEventListener('click', prevImage)
 document.addEventListener('keydown', e => {
   if (modal.style.display !== 'flex') return;
 
-  if (e.key === 'Escape') modal.style.display = 'none';
+  if (e.key === 'Escape') {
+    modal.classList.remove('active');
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, 300);
+    return; // ⬅️ ważne
+  }
+
   if (e.key === 'ArrowRight') nextImage();
   if (e.key === 'ArrowLeft') prevImage();
 });
@@ -138,49 +145,37 @@ if (form) {
 
 // ===== FILE UPLOAD (MAX 3 IMAGES, ADD / REMOVE) =====
 
-const fileInput = document.getElementById('referenceImages');
+const fileInputs = [
+  document.getElementById('referenceImage1'),
+  document.getElementById('referenceImage2'),
+  document.getElementById('referenceImage3')
+];
+
 const fileList = document.querySelector('.file-list');
 
-let selectedFiles = [];
+fileInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    if (!input.files[0]) return;
 
-fileInput.addEventListener('change', () => {
-  const newFiles = Array.from(fileInput.files);
-
-  for (let file of newFiles) {
-    if (selectedFiles.length >= 3) {
-      showFormMessage('You can upload up to 3 images only.');
-      break;
-    }
-
-    if (file.size > 5 * 1024 * 1024) {
+    if (input.files[0].size > 5 * 1024 * 1024) {
       showFormMessage('Each image must be smaller than 5MB.');
-      continue;
+      input.value = '';
+      return;
     }
 
-    selectedFiles.push(file);
-  }
-
-  renderFileList();
+    renderFileList();
+  });
 });
 
 function renderFileList() {
   fileList.innerHTML = '';
 
-  selectedFiles.forEach((file, index) => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      ${file.name}
-      <button type="button" data-index="${index}">✕</button>
-    `;
-    fileList.appendChild(li);
-  });
-
-  fileList.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const index = btn.dataset.index;
-      selectedFiles.splice(index, 1);
-      renderFileList();
-    });
+  fileInputs.forEach((input, index) => {
+    if (input.files[0]) {
+      const li = document.createElement('li');
+      li.textContent = `Image ${index + 1}: ${input.files[0].name}`;
+      fileList.appendChild(li);
+    }
   });
 }
 
@@ -240,4 +235,37 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function showFormMessage(text) {
+  const message = document.querySelector('.form-message');
+  if (!message) return;
+
+  message.textContent = text;
+  message.classList.add('visible');
+
+  setTimeout(() => {
+    message.classList.remove('visible');
+  }, 4000);
+}
+
+function showFormMessage(text) {
+  const message = document.querySelector('.form-message');
+  if (!message) return;
+
+  message.textContent = text;
+  message.classList.add('visible');
+
+  setTimeout(() => {
+    message.classList.remove('visible');
+  }, 4000);
+}
+
+document.querySelectorAll('.remove-file').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const input = document.getElementById(btn.dataset.input);
+    if (input) {
+      input.value = '';
+      renderFileList();
+    }
+  });
+});
 

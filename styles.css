@@ -186,7 +186,6 @@ h1 span {
 
 .grid img {
   image-rendering: auto;
-  image-rendering: smooth;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
@@ -262,8 +261,6 @@ textarea::placeholder {
   color: #888;
 }
 
-}
-
 textarea {
   min-height: 120px;
 }
@@ -308,7 +305,6 @@ transition: transform .25s ease, box-shadow .25s ease;
 .submit:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0,0,0,.35);
-}
 }
 
 
@@ -424,7 +420,7 @@ iframe {
 }
 
 .faq-item.open .faq-content {
-  max-height: 240px;
+  max-height: 1000px;
   padding: 0 32px 32px;
   opacity: 1;
 }
@@ -1189,3 +1185,94 @@ input[type="time"] {
   transform: translateY(0);
   pointer-events: auto;
 }
+
+.remove-file:hover {
+  background: rgba(255, 107, 107, 0.15);
+  border-color: #ff6b6b;
+  transform: scale(1.05);
+}
+
+.remove-file:active {
+  transform: scale(0.95);
+}
+
+/* COMPACT FILE INPUT (FINAL FIX) */
+
+.file-input-row.compact {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.file-input-row.compact input[type="file"] {
+  width: 100%;
+  height: 44px;
+  padding: 12px 44px 12px 16px;
+
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+
+  background: linear-gradient(180deg, #0f0f0f, #0b0b0b);
+  color: #ccc;
+  font-size: 13px;
+}
+
+.file-input-row.compact input[type="file"]::-webkit-file-upload-button {
+  padding: 6px 12px;
+  margin-right: 10px;
+
+  border-radius: 6px;
+  border: none;
+
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.file-input-row.compact .remove-file {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255, 107, 107, 0.35);
+  background: transparent;
+
+  color: #ff6b6b;
+  font-size: 14px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.file-input-row.compact .remove-file:hover {
+  opacity: 1;
+  background: rgba(255, 107, 107, 0.15);
+}
+
+/* FILE INPUT – HOVER LIKE BUTTONS */
+
+.file-input-row.compact input[type="file"]::-webkit-file-upload-button {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.file-input-row.compact input[type="file"]:hover::-webkit-file-upload-button {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.file-input-row.compact input[type="file"]::-webkit-file-upload-button {
+  cursor: pointer;
+}
+
