@@ -137,8 +137,13 @@ document.addEventListener('click', (e) => {
 const form = document.querySelector('.form-card');
 
 if (form) {
+  const submitBtn = form.querySelector('.submit');
+
   form.addEventListener('submit', () => {
     localStorage.setItem('formSubmitted', 'true');
+
+    submitBtn.classList.add('loading');
+    submitBtn.textContent = 'Sending…';
   });
 }
 
@@ -158,23 +163,19 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.hero')?.classList.add('loaded');
 
   // ⏳ dajemy chwilę po redirect Static Forms
-  setTimeout(() => {
-    const message = document.querySelector('.form-message');
+ setTimeout(() => {
+  const popup = document.getElementById('successPopup');
 
-    if (localStorage.getItem('formSubmitted') === 'true' && message) {
-      message.textContent =
-        "Thank you for your request! I’ll get back to you as soon as possible.";
-      message.classList.add('visible');
+  if (localStorage.getItem('formSubmitted') === 'true' && popup) {
+    popup.classList.add('visible');
+    localStorage.removeItem('formSubmitted');
+  }
+}, 300);
 
-      message.scrollIntoView({ behavior: 'smooth', block: 'center' });
+document.querySelector('.popup-btn')?.addEventListener('click', () => {
+  document.getElementById('successPopup')?.classList.remove('visible');
+});
 
-      setTimeout(() => {
-        message.classList.remove('visible');
-      }, 4000);
-
-      localStorage.removeItem('formSubmitted');
-    }
-  }, 300); // ⬅️ KLUCZOWE
 });
 
 document.addEventListener('DOMContentLoaded', () => {
