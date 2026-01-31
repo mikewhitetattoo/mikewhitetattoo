@@ -184,6 +184,13 @@ h1 span {
   cursor: pointer;
 }
 
+.grid img {
+  image-rendering: auto;
+  image-rendering: smooth;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
 .grid img:hover {
   filter: none;
 }
@@ -436,16 +443,29 @@ iframe {
 
 
 .modal-image-wrapper {
-  max-width: 90%;
-  max-height: 90%;
-  overflow: hidden;
+  width: 90vw;
+  height: 90vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;          /* ⬅️ KLUCZ */
+  transform: scale(0.97);
+  transition: transform 0.3s ease;
 }
+
 
 #modalImg {
   max-width: 100%;
   max-height: 100%;
+  object-fit: contain;
+  display: block;
+
+  pointer-events: auto;          /* ⬅️ WAŻNE */
   transition: opacity .35s ease, transform .35s ease;
 }
+
 
 .modal-arrow {
   position: absolute;
@@ -558,12 +578,6 @@ iframe {
 
 .map-clickable iframe {
   pointer-events: none;
-}
-
-.modal-image-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 footer {
