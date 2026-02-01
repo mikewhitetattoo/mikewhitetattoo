@@ -1670,13 +1670,15 @@ textarea:-webkit-autofill:focus {
 }
 
 
-.hero-text,
-.hero-image {
-  opacity: 0;
+.fonts-loaded .hero-text,
+.fonts-loaded .hero-image {
   animation: heroFade 2.5s ease forwards;
 }
 
 @keyframes heroFade {
+  from {
+    opacity: 0;
+  }
   to {
     opacity: 1;
   }
