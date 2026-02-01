@@ -987,13 +987,13 @@ html {
 @media (min-width: 1024px) {
 
   .hero {
-    padding-top: 90px;     /* ⬅️ było 140px */
+    padding-top: 60px;   /* ⬅️ było 90 */
   }
 
   .hero-inner {
-    padding: 60px 32px 100px;
-    /* top | sides | bottom */
+    padding: 40px 32px 80px; /* ⬅️ było 100px */
   }
+
 }
 
 /* DESKTOP – HERO TEXT MICRO ALIGN (FINAL POLISH) */
@@ -1669,4 +1669,29 @@ textarea:-webkit-autofill:focus {
   box-shadow: 0 6px 16px rgba(0,0,0,.3);
 }
 
+
+.hero-text,
+.hero-image {
+  opacity: 0;
+  animation: heroFade 2.5s ease forwards;
+}
+
+@keyframes heroFade {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding-top: 0;          /* ⬅️ KLUCZ */
+  }
+
+  .hero-inner {
+    padding-top: 16px;       /* ⬅️ tylko delikatny oddech */
+    padding-bottom: 40px;
+  }
+
+}
 

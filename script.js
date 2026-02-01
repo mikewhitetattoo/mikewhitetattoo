@@ -250,3 +250,13 @@ document.querySelectorAll('.upload-slot').forEach(slot => {
     if (preview) preview.remove();
   });
 });
+
+if ('fonts' in document) {
+  document.fonts.ready.then(() => {
+    document.documentElement.classList.add('fonts-loaded');
+  });
+} else {
+  // fallback for very old browsers
+  document.documentElement.classList.add('fonts-loaded');
+}
+
