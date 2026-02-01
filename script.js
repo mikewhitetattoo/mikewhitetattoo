@@ -160,7 +160,6 @@ document.querySelectorAll('input[type="date"], input[type="time"]').forEach(inpu
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.hero')?.classList.add('loaded');
 
   // ⏳ dajemy chwilę po redirect Static Forms
  setTimeout(() => {
