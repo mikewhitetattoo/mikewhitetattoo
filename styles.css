@@ -1697,3 +1697,47 @@ textarea:-webkit-autofill:focus {
 
 }
 
+/* =========================
+   PRIVACY PAGE – FINAL ALIGN
+   ========================= */
+
+body.privacy-page {
+  padding-top: 0;
+}
+
+body.privacy-page .nav {
+  position: sticky;
+  top: 0;
+}
+
+.privacy {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 32px 80px; /* ⬅️ KLUCZ: było za dużo */
+}
+
+.privacy h2 {
+  margin: 0 0 24px;        /* ⬅️ usuwamy górny margines */
+  text-align: center;
+}
+
+/* =========================
+   PRIVACY PAGE – COMPACT NAV
+   ========================= */
+
+body.privacy-page .nav {
+  height: 52px;              /* ⬅️ było 72 */
+}
+
+body.privacy-page .nav-inner {
+  padding: 12px 32px;        /* ⬅️ mniej powietrza */
+}
+
+body.privacy-page .privacy {
+  padding-top: 0;            /* ⬅️ zero luzu */
+}
+
+body.privacy-page .privacy h2 {
+  margin-top: 6px;           /* ⬅️ ~1 cm pod logo */
+}
+
