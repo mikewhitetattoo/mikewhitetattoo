@@ -260,3 +260,16 @@ if ('fonts' in document) {
   document.documentElement.classList.add('fonts-loaded');
 }
 
+// FORCE INSTAGRAM TO OPEN IN BROWSER (MOBILE)
+
+document.querySelectorAll('.ig-browser-only').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+
+    const url = link.href;
+
+    // zawsze nowa karta = mniejsza szansa na appkę
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+});
+
