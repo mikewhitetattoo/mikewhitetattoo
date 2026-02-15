@@ -468,11 +468,10 @@ iframe {
   align-items: center;
   justify-content: center;
 
-  pointer-events: none;          /* ⬅️ KLUCZ */
+  pointer-events: none;   /* zostaje */
   transform: scale(0.97);
   transition: transform 0.3s ease;
 }
-
 
 #modalImg {
   max-width: 100%;
@@ -480,7 +479,7 @@ iframe {
   object-fit: contain;
   display: block;
 
-  pointer-events: auto;          /* ⬅️ WAŻNE */
+  pointer-events: none;   /* ⬅️ ZMIANA (było auto) */
   transition: opacity .35s ease, transform .35s ease;
 }
 
@@ -494,17 +493,21 @@ iframe {
   cursor: pointer;
   user-select: none;
   padding: 20px;
+z-index: 10001;
 }
 
 .modal-arrow.left { left: 20px; }
 .modal-arrow.right { right: 20px; }
 
+/* CLOSE BUTTON */
 .close {
   position: absolute;
   top: 40px;
   right: 40px;
   font-size: 40px;
   cursor: pointer;
+
+  z-index: 10001; /* ⬅️ KLUCZ */
 }
 
 /* MOBILE */
